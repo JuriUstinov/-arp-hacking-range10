@@ -35,6 +35,9 @@
     ip link set dev eth1 down
     ip link set dev eth1 address {{ client_mac }}
     ip link set dev eth1 up
+    ip link set dev eth1 down
+    ip a add 10.10.30.6/24 dev eth1
+    ip link set dev eth1 up
   when: network_config.changed
   async: 10
   poll: 0
